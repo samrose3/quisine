@@ -1,0 +1,52 @@
+{
+  "name": "quisine",
+  "description": "A tool for sharing your quarantine culinary experiences and being mindful at each meal.",
+  "version": "1.0.0",
+  "author": "Sam Rose <samrose3@gmail.com>",
+  "dependencies": {
+    "@emotion/core": "^10.0.28",
+    "@reach/dialog": "^0.10.0",
+    "@reach/menu-button": "^0.8.6",
+    "@reach/visually-hidden": "^0.10.0",
+    "axios": "^0.19.2",
+    "babel-plugin-emotion": "^9.2.9",
+    "babel-plugin-tailwind-components": "^0.5.5",
+    "cloudinary": "^1.21.0",
+    "date-fns": "^2.12.0",
+    "focus-visible": "^5.1.0",
+    "gatsby": "^2.20.18",
+    "gatsby-plugin-emotion": "^4.2.1",
+    "gatsby-plugin-manifest": "^2.0.2",
+    "gatsby-plugin-offline": "^2.0.5",
+    "gatsby-plugin-react-helmet": "^3.0.0",
+    "gatsby-source-graphql": "^2.0.1",
+    "gh-pages": "^2.0.1",
+    "lodash": "^4.17.15",
+    "netlify-identity-widget": "^1.5.6",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-feather": "^2.0.4",
+    "react-helmet": "^5.2.0",
+    "react-spring": "^8.0.27",
+    "tailwindcss": "^1.2.0"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write '**/*.js'",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+  },
+  "devDependencies": {
+    "gatsby-plugin-postcss": "^2.0.0",
+    "prettier": "^1.14.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samrose3/quisine"
+  }
+}

@@ -1,0 +1,10 @@
+type Post {
+  title: String!
+  src: String!
+  ingredients: [String]!
+  created: Time!
+}
+
+type Query {
+  allPosts: [Post!]!
+}

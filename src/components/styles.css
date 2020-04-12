@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+@tailwind base;
+@tailwind components;
+
+html,
+body {
+  @apply text-gray-900;
+}
+
+button,
+input,
+select {
+  @apply transition-all duration-150;
+}
+
+.button {
+  @apply px-2 py-1 text-sm bg-gray-100 border border-gray-400 rounded;
+}
+
+.button:hover {
+  @apply bg-gray-200;
+}
+
+.button-primary {
+  @apply text-gray-100 bg-gray-900 border-gray-700;
+}
+
+.button-primary:hover {
+  @apply bg-gray-800;
+}
+
+.input {
+  @apply px-2 py-1 text-sm bg-gray-100 border border-gray-400 rounded;
+}
+
+.input:focus {
+  @apply bg-gray-200;
+  outline: none;
+}
+
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+
+.dropdown-caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  content: '';
+  border-top-color: theme('colors.gray.800');
+  border-top-style: solid;
+  border-top-width: 4px;
+  border-right: 4px solid transparent;
+  border-bottom: 0 solid transparent;
+  border-left: 4px solid transparent;
+}
+
+/* @reach/menu-button */
+[data-reach-menu-list] {
+  @apply p-0 bg-white border-gray-300 rounded shadow-md;
+}
+
+[data-reach-menu-item] {
+  @apply px-3 py-1 transition-all duration-75;
+  min-width: 8rem;
+}
+
+[data-reach-menu-item]:hover,
+[data-reach-menu-item][data-selected] {
+  @apply text-gray-900 bg-gray-100;
+}
+
+/* @reach/dialog */
+[data-reach-dialog-content] {
+  @apply w-full h-full m-0 transition-all rounded;
+}
+
+@screen sm {
+  [data-reach-dialog-content] {
+    @apply w-1/2 h-auto;
+    margin: 10vh auto;
+  }
+}
+
+@tailwind utilities;
