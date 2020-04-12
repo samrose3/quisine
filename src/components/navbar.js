@@ -5,15 +5,22 @@ import { Menu, MenuList, MenuButton, MenuItem } from '@reach/menu-button'
 import Modal from './modal'
 import NewPostForm from './new-post'
 
-const Navbar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+netlifyIdentity.init()
+
+const Navbar = ({ onNewPost }) => {
+  const user = netlifyIdentity.currentUser()
+  const [isLoggedIn, setIsLoggedIn] = useState(Boolean(user))
   const [showDialog, setShowDialog] = useState(false)
 
   const open = () => setShowDialog(true)
   const close = () => setShowDialog(false)
 
   useEffect(() => {
-    netlifyIdentity.init()
+    netlifyIdentity.on('login', () => {
+      setIsLoggedIn(true)
+      netlifyIdentity.close()
+    })
+    netlifyIdentity.on('logout', () => setIsLoggedIn(false))
   }, [])
 
   return (
@@ -36,17 +43,28 @@ const Navbar = () => {
               onDismiss={close}
               aria-label="Create a new post"
             >
-              <NewPostForm onSubmit={close} onCancel={close} />
+              <NewPostForm
+                onSubmit={() => {
+                  close()
+                  onNewPost()
+                }}
+                onCancel={close}
+              />
             </Modal>
             <Menu>
               <MenuButton className="flex items-center">
-                <span className="inline-block w-8 h-8 mr-1 bg-gray-500 rounded-full" />
+                <span
+                  className="inline-block w-8 h-8 mr-1 bg-gray-500 bg-center bg-cover rounded-full"
+                  css={{
+                    backgroundImage: `url(https://unavatar.now.sh/${user.email})`,
+                  }}
+                />
                 <span aria-hidden className="dropdown-caret" />
               </MenuButton>
               <MenuList>
                 <MenuItem onSelect={() => {}}>Profile</MenuItem>
                 <MenuItem onSelect={() => {}}>Settings</MenuItem>
-                <MenuItem onSelect={() => setIsLoggedIn(false)}>
+                <MenuItem onSelect={() => netlifyIdentity.logout()}>
                   Logout
                 </MenuItem>
               </MenuList>

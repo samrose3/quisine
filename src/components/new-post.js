@@ -98,11 +98,11 @@ const NewPostForm = ({ onSubmit, onCancel }) => {
     e.preventDefault()
     if (state.status !== STATUS.SUCCESS) return
 
-    const { data, error } = await axios.post('api/create-post', state.post)
+    const { error } = await axios.post('api/create-post', state.post)
 
     if (error) return updateStatus(STATUS.ERROR)
+    updateStatus(STATUS.SUCCESS)
 
-    console.log(data)
     onSubmit(e)
   }
 

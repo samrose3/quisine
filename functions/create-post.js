@@ -17,7 +17,7 @@ exports.handler = async event => {
   const { data, errors } = await sendQuery(CREATE_POST, {
     data: {
       ...post,
-      created: new Date().toISOString,
+      created: new Date().toISOString(),
     },
   })
 

@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import Navbar from './navbar'
 
 import './styles.css'
 
@@ -31,7 +30,6 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
         </Helmet>
-        <Navbar />
         <div className="flex flex-col flex-wrap items-center py-2 sm:py-16">
           {children}
         </div>
