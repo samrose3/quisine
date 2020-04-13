@@ -15,7 +15,7 @@ const IndexPage = () => {
 
     if (status !== 'loading') return
 
-    axios('/api/get-all-posts').then(result => {
+    axios('/.netlify/functions/get-all-posts').then(result => {
       if (canceled === true) return
 
       if (result.status !== 200) {
@@ -24,7 +24,12 @@ const IndexPage = () => {
         return
       }
 
-      setPosts(result.data.posts)
+      setPosts(
+        result.data.posts.map(p => {
+          p.created = parseISO(p.created)
+          return p
+        })
+      )
       setStatus('loaded')
     })
 
@@ -44,7 +49,7 @@ const IndexPage = () => {
               <Card
                 key={p._id}
                 title={p.title}
-                created={parseISO(p.created)}
+                created={p.created}
                 src={p.src}
                 ingredients={p.ingredients}
               />
