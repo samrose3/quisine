@@ -15,7 +15,7 @@ const IndexPage = () => {
 
     if (status !== 'loading') return
 
-    axios('/.netlify/functions/get-all-posts').then(result => {
+    axios('/api/get-all-posts').then(result => {
       if (canceled === true) return
 
       if (result.status !== 200) {
