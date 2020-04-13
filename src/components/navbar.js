@@ -5,8 +5,6 @@ import { Menu, MenuList, MenuButton, MenuItem } from '@reach/menu-button'
 import Modal from './modal'
 import NewPostForm from './new-post'
 
-netlifyIdentity.init()
-
 const Navbar = ({ onNewPost }) => {
   const user = netlifyIdentity.currentUser()
   const [isLoggedIn, setIsLoggedIn] = useState(Boolean(user))
@@ -16,6 +14,7 @@ const Navbar = ({ onNewPost }) => {
   const close = () => setShowDialog(false)
 
   useEffect(() => {
+    netlifyIdentity.init()
     netlifyIdentity.on('login', () => {
       setIsLoggedIn(true)
       netlifyIdentity.close()
