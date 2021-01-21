@@ -8,7 +8,7 @@
     "@reach/dialog": "^0.10.0",
     "@reach/menu-button": "^0.8.6",
     "@reach/visually-hidden": "^0.10.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-plugin-emotion": "^9.2.9",
     "babel-plugin-tailwind-components": "^0.5.5",
     "date-fns": "^2.12.0",
